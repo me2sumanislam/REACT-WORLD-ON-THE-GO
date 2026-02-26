@@ -1,18 +1,28 @@
- import React from 'react';
- 
- const Country = ({country}) => {
- console.log(country.population.population)
+import React from 'react';
+import './Country.css'
 
+const Country = ({ country }) => {
+    console.log(country.area.area)
 
+ const handleVisited =() =>{
+    console.log('btn clicked')
+ }
 
 
     return (
-        <div>
+        <div className='country'>
             <img src={country.flags.flags.png} alt="" />
             <h3>Name:{country.name.common}</h3>
-            <h4>Population:{country.population.population}</h4>
+            <p>Capital:{country.capital.capital}</p>
+            <p>Area:{country.area.area}
+                {
+                    country.area.area > 300000 ? "big Country" : 'small country'
+            }
+
+            </p>
+             <button onClick={handleVisited}>Not Visited</button>
         </div>
     );
- };
- 
- export default Country;
+};
+
+export default Country;
